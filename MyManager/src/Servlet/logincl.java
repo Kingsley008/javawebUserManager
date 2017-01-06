@@ -76,8 +76,10 @@ public class logincl extends HttpServlet {
 		String uname= request.getParameter("uname");
 		String upasswd = request.getParameter("upasswd");
 	    uname = Tools.getNewString(uname);
+	    
 	
 		Userbeancl ubc = new Userbeancl();
+		 int grade = ubc.getUclass(uname);
 		 boolean check= ubc.checkit(uname, upasswd);
 		  String flag = request.getParameter("flag");
           HttpSession hs = request.getSession();
@@ -99,26 +101,21 @@ public class logincl extends HttpServlet {
 	      response.addCookie(cook1);
 	      response.addCookie(cook2);
 	      
-	     
-//		    ArrayList al = ubc.al(1, 3);
-//		    int pageCount = ubc.getpageCount();
-		    //将al,pageCount 放入request 中
-//		    request.setAttribute("re", al);
-//		    request.setAttribute("pageCount", pageCount+"");
-//		    request.setAttribute("pageNow", "1");
-		    request.getRequestDispatcher("MyMain.jsp").forward(request, response);
-	   
-	  	
 	      }
-
+          
+	      
+         
 		  Object obj=this.getServletContext().getAttribute("Vtime");
 		  	int i = Integer.parseInt(obj.toString()); 
 		  	i++;
 		  	this.getServletContext().setAttribute("Vtime", String.valueOf(i));
 			  //response.sendRedirect("MyMain.jsp");
-		     
-		  request.getRequestDispatcher("MyMain.jsp").forward(request, response);
-		  
+		  	 if(grade==1){
+	        	  request.getRequestDispatcher("MyMain.jsp").forward(request, response); 
+	          }else{
+	        	  request.getRequestDispatcher("MyMain2.jsp").forward(request, response); 
+	          }
+ 
 		  
 		 }else{
 		  //response.sendRedirect("Login.jsp");

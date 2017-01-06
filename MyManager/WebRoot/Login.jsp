@@ -36,6 +36,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 	</style>
+	<script type="text/javascript">
+	 function re(){
+	 window.open("Reg.jsp","_self");
+	 }
+	
+	</script>
 <%
 String uname = null;
 String upasswd =null;
@@ -72,7 +78,7 @@ if(ck!=null){
 <label class="un">用户名<input type="text" name="uname" value="<%if(uname!=null)out.print(uname);%>" required></label><br>
 <label class="un">&nbsp密码<input type="password" name="upasswd"value="<%if(uname!=null)out.print(upasswd);%>" required></label><br>
 <label class="un1" >保存用户名和密码<input type="checkbox" name="flag"></label>
-<label><input type="submit" value="登入"></label>
+<label><input type="submit" value="登入"></label><label><input type="button" value="注册" onclick="re();"></label>
 </form>
 </section>
 </center></body>

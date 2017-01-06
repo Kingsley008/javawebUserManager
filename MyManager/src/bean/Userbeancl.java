@@ -10,6 +10,44 @@ public class Userbeancl {
 	 private int rowCount=0; //一共有几条记录，查表得到 
 	 private int pageCount=0;  //一共有几页，计算得到,返回
 	 
+	 
+	public int getUclass(String uname){
+		int grade = 0;
+		try {
+			state =conn.createStatement();
+			String sql = "select Uclass From Userdata where Uname='"+uname+"';";
+			re = state.executeQuery(sql);
+			if(re.next()){
+				   grade = re.getInt(1);
+				System.out.print(grade);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+				
+		return grade;
+	}
+	
+	public Userbean getUinfo(String uname){
+		Userbean ub = new Userbean();
+		try{
+		state =conn.createStatement();
+		String sql = "select Top 1 * From Userdata where Uname='"+uname+"';";
+		re = state.executeQuery(sql);
+		while(re.next()){
+			ub.setId(re.getInt(1));
+			ub.setName(re.getString(2));
+			ub.setPass(re.getString(3));
+			ub.setMail(re.getString(4));
+			ub.setGrade(re.getInt(5));
+		}
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ub;
+	}
 	 public ArrayList al(int pageNow, int pageSize){
 		 ArrayList<Userbean>al= new ArrayList<Userbean>();		
 		 try {

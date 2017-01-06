@@ -2,6 +2,8 @@ package Servlet;
 //这个控制器处理 用户的 增删改查
 
 import java.io.IOException;
+
+import bean.Userbean;
 import bean.Userbeancl;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -102,6 +104,17 @@ public class dealUserData extends HttpServlet {
 	    	 request.setAttribute("flag",flag2);
 	    	 request.getRequestDispatcher("Searchuser.jsp").forward(request, response);
 	    	  
+	    }
+	    
+	    //显示个人页面 
+	    if(flag.equals("uinfo")){
+	    	 String uname = request.getParameter("uname");
+	    	 Userbeancl ubc = new Userbeancl(); 
+	    	 Userbean ub  = new Userbean();
+	    	 
+	    	    ub=ubc.getUinfo(uname);
+	    	    request.setAttribute("uinfo", ub);
+	    	    request.getRequestDispatcher("Userinfo.jsp").forward(request, response);
 	    }
 			
 		
