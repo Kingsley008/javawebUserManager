@@ -219,22 +219,12 @@ public class Userbeancl {
  //ResultSet re = null;
  Statement state= null;
  int r =0;
-// int idd=0;
  try {
 	state=conn.createStatement();
 //  设置数据库自增 解决编号问题
-//	String sql ="select count(*) from UserData";
-//	re =state.executeQuery(sql);
-//			
-//	if(re.next()){
-//		idd= re.getInt(1);
-//		idd++;
-//		
-//	}
 	String sql2 ="Insert into UserData values('"+uname+"','"+upasswd+"','"+mail+"',"+grade+")"
 			+ " ;";
 	r = state.executeUpdate(sql2);
-//	System.out.print(r);
 	if(r==1){
 	  b=true;	
 	}
@@ -245,7 +235,6 @@ public class Userbeancl {
 	close();
 }
  
-
 	 return b;
  }
  //查询用户方法
