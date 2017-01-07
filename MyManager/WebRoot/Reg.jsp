@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  
   
   <body bgcolor="#DDDDDD"><center>
-  <h1>添加新用户</h1>
+  <h1>用户注册</h1>
   <img class="m1" src="img/TAFE.JPG" alt="bg">
   <form action="dealUserData" method="post">
   <hr>

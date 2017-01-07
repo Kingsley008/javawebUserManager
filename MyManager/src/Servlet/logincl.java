@@ -39,9 +39,6 @@ public class logincl extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
-	 
-	
 	}
 	public void destroy() {
 		System.out.print("destory");
@@ -56,8 +53,7 @@ public class logincl extends HttpServlet {
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-		
+			}	
 	}
 
 	/**
@@ -102,8 +98,7 @@ public class logincl extends HttpServlet {
 	      response.addCookie(cook2);
 	      
 	      }
-          
-	      
+     
          
 		  Object obj=this.getServletContext().getAttribute("Vtime");
 		  	int i = Integer.parseInt(obj.toString()); 

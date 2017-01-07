@@ -133,11 +133,8 @@ public class Userbeancl {
 		if(re.next()){
 			String pass = re.getString(1);
 			if(pass.equals(upasswd)){
-				b=true;
-				
-			}
-			
-			
+				b=true;				
+			}					
 		}
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block

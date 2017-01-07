@@ -45,18 +45,7 @@ function checkit(){
 
 
 <%
-//Userbeancl ubc = new Userbeancl(); 不让jsp调用model 
-
-//要显示的信息 从request 中取 
 ArrayList al =(ArrayList)request.getAttribute("re");
-//int pageNow=1; //当前页
-//String SpageNow = request.getParameter("pageNow");
-//if(SpageNow!=null){
- // pageNow = Integer.parseInt(SpageNow);
-//}
-//int pageSize=3; //一页显示3条记录
-                //一共有几条记录
-
 %>
 <section>
 <table>
@@ -68,15 +57,17 @@ ArrayList al =(ArrayList)request.getAttribute("re");
  for(int i=0;i<al.size();i++){
      ub=(Userbean)al.get(i);
 %>
-<tr bgcolor="<%=color[i%2]%>"><td><%=ub.getId() %></td><td><%=ub.getName() %><td><%=ub.getPass() %></td><td><%=ub.getMail() %></td><td><%=ub.getGrade() %></td>
+<tr bgcolor="<%=color[i%2]%>"><td><%=ub.getId() %></td><td><%=ub.getName() %><td><%=ub.getPass() %></td><td><%=ub.getMail() %></td>
+<td><%=ub.getGrade() %></td>
 <td><a href=<%out.println("Alter.jsp?uid="+ub.getId()+"&upw="+ub.getPass()+"&umail="+
-						ub.getMail()+"&ugrade="+ub.getGrade()+"&uname="+ub.getName());%>>修改用户</a></td><td><a href=dealUserData?flag=delete&uid=<%=ub.getId()%> onclick="return checkit();">删除用户</a></td></tr>
+						ub.getMail()+"&ugrade="+ub.getGrade()+"&uname="+ub.getName());%>>修改用户</a></td>
+						<td><a href=dealUserData?flag=delete&uid=<%=ub.getId()%> onclick="return checkit();">删除用户</a></td></tr>
 
 <%
 }
 //从request当中取出pageCount,返回一个Object,转一下
 int pageCount=Integer.parseInt(request.getAttribute("pageCount").toString());
-System.out.print(pageCount);
+
 //一共有几页
 %>
 </table>
@@ -116,8 +107,9 @@ if(pageNow!=pageCount){
 }
 
  %>
- <form action="Manager.jsp">
+ <form action="dealUserData" method="post">
  <label><input type="text" size="3" pattern=[1-9]{1}{2} required name="pageNow"></label>
+ <input type="hidden" value="fengye" name="flag">
  <label><input type="submit" value="Go"></label>
  </form>
  <p>您是第<%=application.getAttribute("Vtime") %>位访问者</p><br>

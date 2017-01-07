@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'Ok.jsp' starting page</title>
+    <title>My JSP 'MyJsp.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -22,10 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
   
-  <body><center>
-    <h2>恭喜你，操作成功</h2><br>
-    <a href="javascript:history.back();">返回</a>
-    <a href="MyMain.jsp">回到主界面</a>
-    
-  </center></body>
+  <body>
+    This is my JSP page. <br>
+  </body>
 </html>

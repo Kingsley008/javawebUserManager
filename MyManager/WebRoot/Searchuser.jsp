@@ -61,12 +61,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <tr><th>id</th><th>name</th><th>pass</th><th>E-mail</th><th>class</th><tr>
   <% 
    
-   for(int i=0;i<al.size();i++){
-    
+   for(int i=0;i<al.size();i++){   
     Userbean ub  = (Userbean) al.get(i);
-   
-    
-   
   %>
   <tr><td><%=ub.getId() %></td>
       <td><%=ub.getName() %></td>
@@ -76,9 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <%
  }
  }
- 
  }
- 
   %>
  </table>
   <a href=MyMain.jsp >返回主菜单</a>
